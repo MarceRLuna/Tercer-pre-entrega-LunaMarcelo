@@ -1,0 +1,15 @@
+
+{% extends 'padre.html' %}
+
+{% block contenido_que_cambia %}
+
+<form class="form" action="{% url 'propietario_formulario' %}" method="post"> {% csrf_token %}
+    <h2>Formulario Propietario</h2>
+    <p>Nombre: <input type="text" name="nombre" placeholder="Escriba el nombre del propietario.."></input></p>
+    <p>Apellido: <input type="text" name="apellido" placeholder="Escriba el apellido del propietario.."></input></p>
+    <p>Teléfono: <input type="number" name="telefono" placeholder="Especifique el teléfono del propietario.."></input></p>
+    <p>Email: <input type="email" name="mail" placeholder="Especifique el email del propietario.."></input></p>
+    <button type="submit">Cargar datos del propietario</button>    
+ </form>
+    
+{% endblock contenido_que_cambia %}
