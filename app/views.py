@@ -7,6 +7,7 @@ from .models import Inmueble, Propietario, Inquilino  # importamos los modelos q
 def inicio(req):
     return render(req, "inicio.html", {})
 
+
 # función que crea nuevas propiedades
 def inmueble (req):
     

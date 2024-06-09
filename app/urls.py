@@ -4,7 +4,7 @@ from django.urls import path
 from app.views import inicio, inmueble, propietario, inquilino, lista_inmuebles 
 
 urlpatterns = [
-    path('', inicio),
+    path('', inicio, name="inicio"),
     path('inmueble/', inmueble), #enlace que me permite ejecutar la función "inmueble"
     path('propietario/', propietario),
     path('inquilino/', inquilino),
