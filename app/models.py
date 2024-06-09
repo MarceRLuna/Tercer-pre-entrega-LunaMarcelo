@@ -24,4 +24,11 @@ class Inquilino(models.Model):
     mail = models.EmailField()
     valor_alquiler = models.IntegerField()
 
+    def __str__(self):
+        return f'''- {self.nombre} 
+                   - {self.apellido}
+                   - {self.telefono}
+                   - {self.mail}
+                   - {self.valor_alquiler}'''
+
 

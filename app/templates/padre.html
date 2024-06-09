@@ -9,17 +9,8 @@
     <link rel="icon" href="{% static 'assets/img/python.svg' %}" class="ico">
 </head>
 <body>
-    <header>
-        <nav>
-          <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Inmueble</a></li>
-            <li><a href="#">Propietario</a></li>
-            <li><a href="#">Inquilino</a></li>
-            <li><a href="#">Buscar</a></li>
-          </ul>
-        </nav>
-    </header>
+    
+    {% include 'navbar.html' %}
 
     <section>
         {% block contenido_que_cambia %}

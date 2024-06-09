@@ -1,0 +1,16 @@
+
+{% extends 'padre.html' %}
+
+{% block contenido_que_cambia %}
+
+<form class="form" action="{% url 'inmueble_formulario' %}" method="post"> {% csrf_token %}
+    <h2>CONTACT US</h2>
+    <p>Categoría: <input type="text" name="categoria" placeholder="Escriba la categría del inmueble.."></input></p>
+    <p>Dirección: <input type="text" name="ubicacion" placeholder="Dirección del inmueble.."></input></p>
+    <p>Cantidad de dormitorios: <input type="number" name="dormitorios" placeholder="Especifique la cantidad de dormitorios.."></input></p>
+    <p>m2 cuadrados cubiertos: <input type="number" name="metros_cuadrados" placeholder="Especifique los m2 del inmueble.."></input></p>
+    <button type="submit">Crear Inmueble</button>    
+ </form>
+    
+{% endblock contenido_que_cambia %}
+     

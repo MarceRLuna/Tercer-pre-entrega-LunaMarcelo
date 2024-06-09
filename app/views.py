@@ -40,3 +40,8 @@ def inquilino (req):
     # nuevo_inquilino.save()
 
     return render(req, "inquilino.html", {})   
+
+
+def inmueble_formulario(req):
+    
+    return render(req, "inmueble_formulario.html", {})
