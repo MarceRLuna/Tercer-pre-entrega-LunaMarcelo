@@ -1,0 +1,21 @@
+
+{% extends 'padre.html' %}
+
+{% block contenido_que_cambia %}
+
+<p>Buscamos los inmueble cuya cantidad de dormitorios: {{domitorios}}</p>
+
+<ul>
+
+    {% for inmueble in inmueble  %} <!--por cada inmueble guardado en la variable "inmueble" que es una instancia de la clase Inmueble, ver función buscar-->
+
+    <li>
+        {{inmueble.categoria}} - {{inmueble.ubicacion}} - {{inmueble.metros_cuadrados}}
+    </li>
+
+    {% endfor %}
+
+</ul> 
+   
+    
+{% endblock contenido_que_cambia %}

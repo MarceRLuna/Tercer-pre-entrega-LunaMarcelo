@@ -11,6 +11,13 @@ class Inmueble(models.Model):
     domitorios = models.IntegerField()
     metros_cuadrados = models.IntegerField()
 
+    def __str__(self):
+        return f'''- {self.categoria} 
+                   - {self.ubicacion}
+                   - {self.domitorios}
+                   - {self.metros_cuadrados}'''
+    
+
 class Propietario(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)

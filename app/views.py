@@ -9,16 +9,6 @@ def inicio(req):
     return render(req, "inicio.html", {})
 
 
-
-# función que busca todas los datos guardados en la base de datos del modelo Inmueble
-def lista_inmuebles(req):
-    
-    lista = Inmueble.objects.all() # manager que me permite recuperar todos los datos almacenados en la tabla Inmueble, creada en la base de datos. En la variable "lista" guardamos la info.
-    
-    return render(req, "lista_inmuebles.html", {"lista_inmuebles" : lista}) 
-
-
-
 def inmueble_formulario(req):
 
     if req.method == 'POST':
@@ -80,6 +70,7 @@ def inquilino_formulario(req):
 
 def propietario_formulario(req):
 
+    
     if req.method == 'POST':
 
         mi_formulario_propietario = Propietario_Formulario(req.POST)
@@ -100,4 +91,32 @@ def propietario_formulario(req):
     else:
         mi_formulario_propietario = Propietario_Formulario()
 
-        return render(req, "propietario_formulario.html", {"mi_formulario_propietario": mi_formulario_propietario})        
+        return render(req, "propietario_formulario.html", {"mi_formulario_propietario": mi_formulario_propietario})
+
+
+# función que busca todas los datos guardados en la base de datos del modelo Inmueble
+def lista_inmuebles(req):
+    
+    lista = Inmueble.objects.all() # manager que me permite recuperar todos los datos almacenados en la tabla Inmueble, creada en la base de datos. En la variable "lista" guardamos la info.
+    
+    return render(req, "lista_inmuebles.html", {"lista_inmuebles" : lista}) 
+
+
+def busqueda_inmueble(req): # esta función solo renderiza un html que se llama "busqueda_inmueble.html"
+
+    return render(req, "busqueda_inmueble.html", {})
+
+
+
+def buscar(req):
+
+    if req.GET["domitorios"]:
+
+        domitorios = req.GET["domitorios"]
+
+        inmueble = Inmueble.objects.filter(domitorios = domitorios) #guardamos en la variable "inmueble" al inmueble que coincida con el criterio de busqueda definido entre los paréntesis (), es decir, recupera el inmueble cuya cantidad de dormitorios sea igual a la cantidad de dormitorios que ingresa el usuario
+
+        return render(req, "resultado_busqueda.html", {"inmueble": inmueble, "domitorios": domitorios})
+
+    else:
+        return render(req, "inicio.html", {"message": "Datos inválidos"})
