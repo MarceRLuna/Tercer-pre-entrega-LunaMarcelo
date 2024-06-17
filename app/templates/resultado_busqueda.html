@@ -3,19 +3,29 @@
 
 {% block contenido_que_cambia %}
 
-<p>Buscamos los inmueble cuya cantidad de dormitorios: {{domitorios}}</p>
+<p>Buscamos los inmueble cuya cantidad de dormitorios es: {{domitorios}}</p>
 
-<ul>
 
-    {% for inmueble in inmueble  %} <!--por cada inmueble guardado en la variable "inmueble" que es una instancia de la clase Inmueble, ver función buscar-->
+{% if inmueble %} <!--Si dentro de la variable inmueble que está en la función "buscar" se guarda alguna instancia de la clase Inmueble, es decir, el criterio de busqueda del método filtrer encuentra coincidencia en la base de datos, se ejecuta el siguiente código: -->
+    <ul>
 
-    <li>
-        {{inmueble.categoria}} - {{inmueble.ubicacion}} - {{inmueble.metros_cuadrados}}
-    </li>
+        {% for inmueble in inmueble  %} <!--por cada inmueble guardado en la variable "inmueble" que es una instancia de la clase Inmueble, ver función buscar-->
 
-    {% endfor %}
+        <li>
+        Categoría: {{inmueble.categoria}} - Ubicación: {{inmueble.ubicacion}} - Metros Cuadrados: {{inmueble.metros_cuadrados}} m2
+        </li>
 
-</ul> 
+        {% endfor %}
+
+    </ul>
+
+{% else %}
+
+    <h3>No hay inmuebles disponibles con la cantidad de dormitorios buscados</h3>
+    
+{% endif %}
+    
+
    
     
 {% endblock contenido_que_cambia %}
